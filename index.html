@@ -13,37 +13,19 @@
     <style>
       @import url("//fonts.googleapis.com/css?family=Economica");
       .odometer.odometer-auto-theme, .odometer.odometer-theme-train-station {
-        display: -moz-inline-box;
-        -moz-box-orient: vertical;
         display: inline-block;
         vertical-align: middle;
-        *vertical-align: auto;
-        position: relative;
-      }
-      .odometer.odometer-auto-theme, .odometer.odometer-theme-train-station {
-        *display: inline;
-      }
-      .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-train-station .odometer-digit {
-        display: -moz-inline-box;
-        -moz-box-orient: vertical;
-        display: inline-block;
-        vertical-align: middle;
-        *vertical-align: auto;
         position: relative;
       }
       .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-train-station .odometer-digit {
-        *display: inline;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
       }
       .odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-train-station .odometer-digit .odometer-digit-spacer {
-        display: -moz-inline-box;
-        -moz-box-orient: vertical;
         display: inline-block;
         vertical-align: middle;
-        *vertical-align: auto;
         visibility: hidden;
-      }
-      .odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-train-station .odometer-digit .odometer-digit-spacer {
-        *display: inline;
       }
       .odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-train-station .odometer-digit .odometer-digit-inner {
         text-align: left;
@@ -64,72 +46,35 @@
       }
       .odometer.odometer-auto-theme .odometer-digit .odometer-value, .odometer.odometer-theme-train-station .odometer-digit .odometer-value {
         display: block;
-        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
       }
       .odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-train-station .odometer-digit .odometer-value.odometer-last-value {
         position: absolute;
       }
       .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-train-station.odometer-animating-up .odometer-ribbon-inner {
-        -webkit-transition: -webkit-transform 2s;
-        -moz-transition: -moz-transform 2s;
-        -ms-transition: -ms-transform 2s;
-        -o-transition: -o-transform 2s;
         transition: transform 2s;
       }
       .odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-train-station.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
-        -webkit-transform: translateY(-100%);
-        -moz-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-        -o-transform: translateY(-100%);
         transform: translateY(-100%);
       }
       .odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-train-station.odometer-animating-down .odometer-ribbon-inner {
-        -webkit-transform: translateY(-100%);
-        -moz-transform: translateY(-100%);
-        -ms-transform: translateY(-100%);
-        -o-transform: translateY(-100%);
         transform: translateY(-100%);
       }
       .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-train-station.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
-        -webkit-transition: -webkit-transform 2s;
-        -moz-transition: -moz-transform 2s;
-        -ms-transition: -ms-transform 2s;
-        -o-transition: -o-transform 2s;
         transition: transform 2s;
-        -webkit-transform: translateY(0);
-        -moz-transform: translateY(0);
-        -ms-transform: translateY(0);
-        -o-transform: translateY(0);
         transform: translateY(0);
       }
-
       .odometer.odometer-auto-theme, .odometer.odometer-theme-train-station {
         font-family: "Economica", sans-serif;
       }
       .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-train-station .odometer-digit {
-        display: -moz-inline-box;
-        -moz-box-orient: vertical;
         display: inline-block;
         vertical-align: middle;
-        *vertical-align: auto;
-        -moz-border-radius: 0.1em;
-        -webkit-border-radius: 0.1em;
-        -o-border-radius: 0.1em;
-        -ms-border-radius: 0.1em;
-        -khtml-border-radius: 0.1em;
         border-radius: 0.1em;
-        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #111111), color-stop(35%, #111111), color-stop(55%, #333333), color-stop(55%, #111111), color-stop(100%, #111111));
-        background-image: -webkit-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-        background-image: -moz-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-        background-image: -o-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-        background-image: -ms-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
         background-image: linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
         background-color: #222222;
         padding: 0 0.15em;
         color: white;
-      }
-      .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-train-station .odometer-digit {
-        *display: inline;
       }
       .odometer.odometer-auto-theme .odometer-digit + .odometer-digit, .odometer.odometer-theme-train-station .odometer-digit + .odometer-digit {
         margin-left: 0.1em;
@@ -219,11 +164,16 @@
         const minValue = parseInt(min.value, 10);
         const maxValue = parseInt(max.value, 10);
         const winnerPick = Math.floor(minValue + (Math.random() * maxValue + 1));
+        title.innerHTML = 'Rolling the dices...';
         result.innerHTML = winnerPick;
+
+        setTimeout(() => {
+          title.innerHTML = 'The winner is';
+        }, 4000);
       }
     </script>
     <section>
-      <h1>Win a Surface Go!</h1>
+      <h1 id="title">Win a Surface Go!</h1>
       <div id="result" class="result">999</div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 604 129"><title>Microsoft logo</title><path d="M213.2 74.3l-3.6 10.2h-.3c-.6-2.3-1.7-5.8-3.5-10l-19.3-48.5h-18.9v77.3h12.5v-47.7c0-3 0-6.4-.1-10.6-.1-2.1-.3-3.7-.4-4.9h.3c.6 3 1.3 5.2 1.8 6.6l23.2 56.4h8.8l23-56.9c.5-1.3 1-3.9 1.5-6.1h.3c-.3 5.7-.5 10.8-.6 13.9v49h13.3v-77.2h-18.2l-19.8 48.5zM263.8 47.6h13v55.4h-13zM270.4 24.2c-2.2 0-4 .8-5.5 2.2-1.5 1.4-2.3 3.2-2.3 5.4 0 2.1.8 3.9 2.3 5.3 1.5 1.4 3.3 2.1 5.5 2.1s4.1-.8 5.5-2.1c1.5-1.4 2.3-3.2 2.3-5.3s-.8-3.9-2.3-5.4c-1.3-1.4-3.2-2.2-5.5-2.2M322.9 47.1c-2.4-.5-4.9-.8-7.3-.8-5.9 0-11.3 1.3-15.8 3.9-4.5 2.6-8.1 6.2-10.4 10.7-2.4 4.6-3.6 9.9-3.6 16 0 5.3 1.2 10 3.5 14.3 2.3 4.2 5.5 7.6 9.8 9.9 4.1 2.3 8.9 3.5 14.3 3.5 6.2 0 11.5-1.3 15.7-3.7l.1-.1v-12l-.5.4c-1.9 1.4-4.1 2.6-6.3 3.3-2.3.8-4.4 1.2-6.2 1.2-5.2 0-9.3-1.5-12.2-4.8-3-3.2-4.5-7.6-4.5-13.1 0-5.7 1.5-10.2 4.6-13.5 3.1-3.3 7.2-5 12.2-5 4.2 0 8.5 1.4 12.4 4.2l.5.4v-12.7l-.1-.1c-1.7-.7-3.6-1.5-6.2-2M365.8 46.7c-3.2 0-6.2 1-8.8 3.1-2.2 1.8-3.7 4.4-5 7.5h-.1v-9.7h-13v55.4h13v-28.3c0-4.8 1-8.8 3.2-11.7 2.2-3 5-4.5 8.4-4.5 1.2 0 2.4.3 3.9.5 1.4.4 2.4.8 3.1 1.3l.5.4v-13l-.3-.1c-.9-.6-2.7-.9-4.9-.9M401.2 46.4c-9.1 0-16.4 2.7-21.5 8-5.2 5.3-7.7 12.6-7.7 21.8 0 8.6 2.6 15.6 7.6 20.7 5 5 11.8 7.6 20.3 7.6 8.9 0 16-2.7 21.1-8.1 5.2-5.4 7.7-12.6 7.7-21.5 0-8.8-2.4-15.8-7.3-20.9-4.7-5.1-11.6-7.6-20.2-7.6m10.4 42.6c-2.4 3.1-6.2 4.6-10.9 4.6s-8.5-1.5-11.2-4.8c-2.7-3.1-4-7.6-4-13.3 0-5.9 1.4-10.4 4-13.6 2.7-3.2 6.4-4.8 11.1-4.8 4.6 0 8.2 1.5 10.8 4.6 2.6 3.1 4 7.6 4 13.5-.2 6-1.3 10.7-3.8 13.8M457.7 70.6c-4.1-1.7-6.7-3-7.9-4.1-1-1-1.5-2.4-1.5-4.2 0-1.5.6-3 2.1-4s3.2-1.5 5.7-1.5c2.2 0 4.5.4 6.7 1s4.2 1.5 5.8 2.7l.5.4v-12.2l-.3-.1c-1.5-.6-3.5-1.2-5.9-1.7-2.4-.4-4.6-.6-6.4-.6-6.2 0-11.3 1.5-15.3 4.8-4 3.1-5.9 7.3-5.9 12.2 0 2.6.4 4.9 1.3 6.8.9 1.9 2.2 3.7 4 5.2 1.8 1.4 4.4 3 8 4.5 3 1.3 5.3 2.3 6.7 3.1 1.4.8 2.3 1.7 3 2.4.5.8.8 1.8.8 3.1 0 3.7-2.8 5.5-8.5 5.5-2.2 0-4.5-.4-7.2-1.3s-5.2-2.2-7.3-3.7l-.5-.4v12.7l.3.1c1.9.9 4.2 1.5 7 2.2 2.8.5 5.3.9 7.5.9 6.7 0 12.2-1.5 16.1-4.8 4-3.2 6.1-7.3 6.1-12.6 0-3.7-1-7-3.2-9.5-2.9-2.4-6.5-4.9-11.7-6.9M506.9 46.4c-9.1 0-16.4 2.7-21.5 8s-7.7 12.6-7.7 21.8c0 8.6 2.6 15.6 7.6 20.7 5 5 11.8 7.6 20.3 7.6 8.9 0 16-2.7 21.1-8.1 5.2-5.4 7.7-12.6 7.7-21.5 0-8.8-2.4-15.8-7.3-20.9-4.7-5.1-11.6-7.6-20.2-7.6m10.3 42.6c-2.4 3.1-6.2 4.6-10.9 4.6-4.8 0-8.5-1.5-11.2-4.8-2.7-3.1-4-7.6-4-13.3 0-5.9 1.4-10.4 4-13.6 2.7-3.2 6.4-4.8 11.1-4.8 4.5 0 8.2 1.5 10.8 4.6 2.6 3.1 4 7.6 4 13.5 0 6-1.3 10.7-3.8 13.8M603.9 58.3v-10.7h-13.1v-16.4l-.4.1-12.4 3.7-.3.1v12.5h-19.6v-7c0-3.2.8-5.7 2.2-7.3s3.5-2.4 6.1-2.4c1.8 0 3.7.4 5.8 1.3l.5.3v-11.3l-.3-.1c-1.8-.6-4.2-1-7.3-1-3.9 0-7.3.9-10.4 2.4-3.1 1.7-5.4 4-7.1 7.1-1.7 3-2.6 6.4-2.6 10.3v7.7h-9.1v10.6h9.1v44.8h13.1v-44.7h19.6v28.5c0 11.7 5.5 17.6 16.5 17.6 1.8 0 3.7-.3 5.5-.6 1.9-.4 3.3-.9 4.1-1.3l.1-.1v-10.7l-.5.4c-.8.5-1.5.9-2.7 1.2-1 .3-1.9.4-2.6.4-2.6 0-4.4-.6-5.7-2.1-1.2-1.4-1.8-3.7-1.8-7.1v-26.2h13.3z" fill="#fff"/><path fill="#F25022" d="M0 0h61.3v61.3h-61.3z"/><path fill="#7FBA00" d="M67.7 0h61.3v61.3h-61.3z"/><path fill="#00A4EF" d="M0 67.7h61.3v61.3h-61.3z"/><path fill="#FFB900" d="M67.7 67.7h61.3v61.3h-61.3z"/></svg>
     </section>
