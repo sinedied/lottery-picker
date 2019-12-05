@@ -174,7 +174,7 @@
       function pick() {
         const minValue = parseInt(min.value, 10);
         const maxValue = parseInt(max.value, 10);
-        const winnerPick = Math.floor(minValue + (Math.random() * maxValue + 1));
+        const winnerPick = Math.floor(minValue + (Math.random() * (maxValue - minValue) + 1));
         title.innerHTML = 'Rolling the dices...';
         result.innerHTML = winnerPick;
 
